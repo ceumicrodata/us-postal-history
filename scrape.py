@@ -5,7 +5,6 @@ import re
 
 # define some constants
 URL = 'http://www.postalhistory.com/postoffices.asp?task=display'
-STATES = ['AL',     'AK',     'AS',     'AZ',     'AR',     'CA',     'CO',     'CT',     'DE',     'DC',     'FM',     'FL',     'GA',     'GU',     'HI',     'ID',     'IL',     'IN',     'IA',     'KS',     'KY',     'LA',     'ME',     'MH',     'MD',     'MA',     'MI',     'MN',     'MS',     'MO',     'MT',     'NE',     'NV',     'NH',     'NJ',     'NM',     'NY',     'NC',     'ND',     'MP',     'OH',     'OK',     'OR',     'PW',     'PA',     'PR',     'RI',     'SC',     'SD',     'TN',     'TX',     'UT',     'VT',     'VI',     'VA',     'WA',     'WV',     'WI',     'WY']                                                             
 PATTERN = re.compile('>([\w \.,]*?\(\d{4}.*?\))')
 
 def return_rows(html):
@@ -25,7 +24,7 @@ def download_data(state='DE'):
             page += 1
 
 if __name__=='__main__':
-    for state in STATES:
-        download_data(state)
+    state = sys.argv[1]
+    download_data(state)
 
 
